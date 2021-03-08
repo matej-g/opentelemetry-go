@@ -696,8 +696,14 @@ func TestHTTPAttributesFromHTTPStatusCode(t *testing.T) {
 func TestSpanStatusFromHTTPStatusCode(t *testing.T) {
 	for code := 0; code < 1000; code++ {
 		expected := getExpectedCodeForHTTPCode(code)
-		got, _ := SpanStatusFromHTTPStatusCode(code)
+		got, msg := SpanStatusFromHTTPStatusCode(code)
 		assert.Equalf(t, expected, got, "%s vs %s", expected, got)
+
+		if expected == codes.Error {
+			assert.NotEmpty(t, msg, "message should not be empty for error status")
+		} else {
+			assert.Empty(t, msg, "message must be empty for OK / unset status")
+		}
 	}
 }
 

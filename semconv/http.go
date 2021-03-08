@@ -288,5 +288,10 @@ func SpanStatusFromHTTPStatusCode(code int) (codes.Code, string) {
 	if !valid {
 		return spanCode, fmt.Sprintf("Invalid HTTP status code %d", code)
 	}
-	return spanCode, fmt.Sprintf("HTTP status code: %d", code)
+
+	if spanCode == codes.Error {
+		return spanCode, fmt.Sprintf("HTTP status code: %d", code)
+	}
+
+	return spanCode, ""
 }
