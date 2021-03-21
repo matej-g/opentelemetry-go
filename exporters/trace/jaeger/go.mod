@@ -8,12 +8,12 @@ replace (
 )
 
 require (
-	github.com/google/go-cmp v0.5.4
+	github.com/google/go-cmp v0.5.5
 	github.com/stretchr/testify v1.7.0
 	go.opentelemetry.io/otel v0.17.0
 	go.opentelemetry.io/otel/sdk v0.17.0
 	go.opentelemetry.io/otel/trace v0.17.0
-	google.golang.org/api v0.40.0
+	google.golang.org/api v0.42.0
 )
 
 replace go.opentelemetry.io/otel/bridge/opencensus => ../../../bridge/opencensus
