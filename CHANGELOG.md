@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Added
 
+- Option `ExportTimeout` was added to batch span processor. (#1755)
 - Adds semantic conventions for exceptions. (#1492)
 - Added support for configuring OTLP/HTTP Endpoints, Headers, Compression and Timeout via the Environment Variables. (#1758)
   - `OTEL_EXPORTER_OTLP_ENDPOINT`
@@ -65,6 +66,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   If needed, that Span's `SpanContext.IsRemote()` can then be used to determine if it is remote or not. (#1731)
 - The `HasRemoteParent` field of the `"go.opentelemetry.io/otel/sdk/trace".SamplingParameters` is removed.
   This field is redundant to the information returned from the `Remote` method of the `SpanContext` held in the `ParentContext` field. (#1749)
+  
+### Fixed
+
+- The `Span.IsRecording` implementation from `go.opentelemetry.io/otel/sdk/trace` always returns false when not being sampled. (#1750)
 
 ## [0.19.0] - 2021-03-18
 
