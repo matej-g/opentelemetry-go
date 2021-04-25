@@ -15,7 +15,7 @@ require (
 	go.opentelemetry.io/otel/bridge/opencensus v0.19.0
 	go.opentelemetry.io/otel/exporters/stdout v0.19.0
 	go.opentelemetry.io/otel/sdk v0.19.0
-	go.opentelemetry.io/otel/sdk/export/metric v0.19.0
+	go.opentelemetry.io/otel/sdk/export/metric v0.20.0
 )
 
 replace go.opentelemetry.io/otel/bridge/opentracing => ../../bridge/opentracing
